@@ -12,7 +12,13 @@ public class Utils {
                 System.out.println("Usage: fastfind (option) (path) (filename)");
                 break;
             case 2:
-                System.out.println("Available Commands:\n-i insensitive\n-img images (.jpg, .png, .gif, .webp)");
+                System.out.println("""
+                        Available Commands:
+                        -i      insensitive (ignore capital letters)
+                        -img    images (.jpg, .png, .gif, .webp)
+                        -vid    videos (.mp4, .mkv, .avi)
+                        -doc    documents (.pdf, .docx, .txt, .odt, .pptx, .odp)
+                    """);
                 break;
         }
     }

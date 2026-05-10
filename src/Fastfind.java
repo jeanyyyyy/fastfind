@@ -9,14 +9,7 @@ public class Fastfind {
         utilities = new Utils();
     }
 
-
-
-
-
-    /// commands in arraylist packen; -> if abkürzen; überprüfen, ob userinput überhaupt command ist. switch!
-
     public void runFastfind() {
-        String[] commandOptions = {"-i", "-h", "img"};
         while (true) {
             String input = utilities.Scanner();
             String[] split = input.split(" ");
@@ -29,6 +22,7 @@ public class Fastfind {
 
             if (split.length < 2) {
                 utilities.usage(1);
+                continue;
             }
 
             if (split[1].equals("-h")) {
@@ -36,7 +30,7 @@ public class Fastfind {
                 continue;
             }
 
-            if (split.length < 4) {
+            if (split.length < 3) {
                 utilities.usage(1);
                 continue;
             }
