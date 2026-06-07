@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Options {
     public static ArrayList<String> options(String option, ArrayList<String> command, String dir, String name) {
-        switch(option) {
+        switch (option) {
             case "-i":
                 command.addAll(List.of(
                         "find",

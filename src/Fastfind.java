@@ -9,53 +9,36 @@ public class Fastfind {
         utilities = new Utils();
     }
 
-    public void runFastfind() {
-        while (true) {
-            String input = utilities.Scanner();
-            String[] split = input.split(" ");
-            ProcessBuilder pb;
+    public void runFastfind(String[] args) {
+        if (args.length < 2) {
+            utilities.usage(1);
+            return;
+        }
 
-            if (!split[0].equals("fastfind")) {
-                utilities.usage(1);
-                continue;
-            }
+        if (args[0].equals("-h")) {
+            utilities.usage(2);
+            return;
+        }
 
-            if (split.length < 2) {
-                utilities.usage(1);
-                continue;
-            }
+        command = new ArrayList<String>();
+        String option = args[0];
+        String dir = args[1].replace("~", System.getProperty("user.home")); // search in home directory
+        String name;
 
-            if (split[1].equals("-h")) {
-                utilities.usage(2);
-                continue;
-            }
+        if (args.length < 3 || args[2].isEmpty()) { // in case insufficient arguments are provided
+            name = "*";                               // or name is empty
+        } else {
+            name = args[2];
+        }
 
-            if (split.length < 3) {
-                utilities.usage(1);
-                continue;
-            }
+        ArrayList<String> end = Options.options(option, command, dir, name);
+        ProcessBuilder pb = new ProcessBuilder(end);
+        pb.inheritIO();
 
-            command = new ArrayList<String>();
-            String option = split[1];
-            String dir = split[2].replace("~", System.getProperty("user.home")); // search in home directory
-            String name;
-
-            if (split.length < 4 || split[3].isEmpty()) { // in case insufficient arguments are provided
-                name = "*";                               // or name is empty
-            } else {
-                name = split[3];
-            }
-
-            ArrayList<String> end = Options.options(option, command, dir, name);
-
-            pb = new ProcessBuilder(end);
-            pb.inheritIO();
-            try {
-                pb.start().waitFor();
-            } catch (InterruptedException | IOException e){
-                System.out.println("Error; " + e.getMessage());
-            }
-            break;
+        try {
+            pb.start().waitFor();
+        } catch (InterruptedException | IOException e) {
+            System.out.println("Error; " + e.getMessage());
         }
     }
 }
