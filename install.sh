@@ -15,4 +15,10 @@ EOF
 
 chmod +x "$INSTALL_DIR/$NAME"
 
-echo "$NAME was successfully installed. Use: fastfind"
+if [[ ":$PATH:" != *":$INSTALL_DIR:"* ]]; then
+  echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+  echo "Type: source ~/.bashrc in your terminal."
+fi
+
+
+echo "$NAME was successfully installed. Use fastfind -h for an overview of the available commands."
