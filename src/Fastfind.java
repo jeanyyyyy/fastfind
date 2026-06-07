@@ -55,6 +55,7 @@ public class Fastfind {
             } catch (InterruptedException | IOException e){
                 System.out.println("Error; " + e.getMessage());
             }
+            break;
         }
     }
 }

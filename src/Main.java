@@ -6,3 +6,9 @@ public class Main {
         fastfind.runFastfind();
     }
 }
+
+// To-Do:
+// * Wenn keine Datei, dann Fehlermeldung
+// * Mehr Optionen
+// * Nicht pfad zurückgeben, sondern Content
+// * Nicht als "Programm", normal als CLI-Tool
