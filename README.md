@@ -1,5 +1,6 @@
 # fastfind
-A CLI tool that simplifies Linux 'find' syntax built in Java. Note that this is a beginner project, so things may not work as intended.
+Linux 'find' wrapper. The goal of this project is to make the syntax easier and faster to type.
+Note that this is a beginner project, so things may not work as intended.
 
 ### Installation:
 1. git clone https://github.com/jeanyyyyy/fastfind
