@@ -3,17 +3,6 @@ import java.util.List;
 
 public class Options {
     public static ArrayList<String> options(String option, ArrayList<String> command, String dir, String name) {
-        Boolean isMac = System.getProperty("os.name").trim().toLowerCase().contains("mac");
-        String leftParenthesis;
-        String rightParenthesis;
-        if (isMac) {
-            leftParenthesis = "\\(";
-            rightParenthesis = "\\)";
-        } else {
-            leftParenthesis = "(";
-            rightParenthesis = ")";
-        }
-
         switch (option) {
             case "-i":
                 command.addAll(List.of(
@@ -30,7 +19,7 @@ public class Options {
                         dir,
                         "-type",
                         "f",
-                        leftParenthesis,
+                        "(",
                         "-iname",
                         "*%s*.jpg".formatted(name),
                         "-o",
@@ -42,7 +31,7 @@ public class Options {
                         "-o",
                         "-iname",
                         "*%s*.webp".formatted(name),
-                        rightParenthesis
+                        ")"
                 ));
                 break;
 
@@ -52,7 +41,7 @@ public class Options {
                         dir,
                         "-type",
                         "f",
-                        leftParenthesis,
+                        "(",
                         "-iname",
                         "*%s*.mp4".formatted(name),
                         "-o",
@@ -61,7 +50,7 @@ public class Options {
                         "-o",
                         "-iname",
                         "*%s*.avi".formatted(name),
-                        rightParenthesis
+                        ")"
                 ));
                 break;
 
@@ -71,7 +60,7 @@ public class Options {
                         dir,
                         "-type",
                         "f",
-                        leftParenthesis,
+                        "(",
                         "-iname",
                         "*%s*.pdf".formatted(name),
                         "-o",
@@ -89,7 +78,7 @@ public class Options {
                         "-o",
                         "-iname",
                         "*%s*.odp".formatted(name),
-                        rightParenthesis
+                        ")"
                 ));
                 break;
 
