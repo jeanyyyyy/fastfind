@@ -10,13 +10,19 @@ public class Fastfind {
     }
 
     public void runFastfind(String[] args) {
-        if (args.length < 2) {
+
+        if (args.length == 0) {
             utilities.usage(1);
             return;
         }
 
         if (args[0].equals("-h")) {
             utilities.usage(2);
+            return;
+        }
+
+        if (args.length < 2) {
+            utilities.usage(1);
             return;
         }
 
