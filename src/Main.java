@@ -8,6 +8,6 @@ public class Main {
 }
 
 // To-Do:
-// * Wenn keine Datei, dann Fehlermeldung
 // * Mehr Optionen
-// * Nicht pfad zurückgeben, sondern Content
+// * Syntax Fehlermeldungen verbessern
+// * Windows support (bool is Windows)

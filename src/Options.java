@@ -82,6 +82,50 @@ public class Options {
                 ));
                 break;
 
+            case "-comp":
+                command.addAll(List.of(
+                        "find",
+                        dir,
+                        "-type",
+                        "f",
+                        "(",
+                        "-iname",
+                        "*%s*.zip".formatted(name),
+                        "-o",
+                        "-iname",
+                        "*%s*.rar".formatted(name),
+                        "-o",
+                        "-iname",
+                        "*%s*.7z".formatted(name),
+                        ")"
+                ));
+                break;
+
+            case "-inst":
+                command.addAll(List.of(
+                        "find",
+                        dir,
+                        "-type",
+                        "f",
+                        "(",
+                        "-iname",
+                        "*%s*.exe".formatted(name),
+                        "-o",
+                        "-iname",
+                        "*%s*.tar.gz".formatted(name),
+                        "-o",
+                        "-iname",
+                        "*%s*.msi".formatted(name),
+                        "-o",
+                        "-iname",
+                        "*%s*.AppImage".formatted(name),
+                        "-o",
+                        "-iname",
+                        "*%s*.dmg".formatted(name),
+                        ")"
+                ));
+                break;
+
             default:
                 command.addAll(List.of(
                         "find",

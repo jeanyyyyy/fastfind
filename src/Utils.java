@@ -13,6 +13,8 @@ public class Utils {
                             -img    images (.jpg, .png, .gif, .webp)
                             -vid    videos (.mp4, .mkv, .avi)
                             -doc    documents (.pdf, .docx, .txt, .odt, .pptx, .odp)
+                            -comp   compressed files (.zip, .rar, .7z)
+                            -inst   installer (.exe, .tar.gz, .msi, .AppImage, .dmg)
                         """);
                 break;
         }

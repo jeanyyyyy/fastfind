@@ -4,9 +4,13 @@ import java.util.ArrayList;
 public class Fastfind {
     Utils utilities;
     private ArrayList<String> command;
+    private String[] commands;
+    private boolean isCommand;
 
     public Fastfind() {
         utilities = new Utils();
+        commands = new String[] {"-i", "-img", "-doc", "-vid", "-comp", "-inst"};
+        isCommand = false;
     }
 
     public void runFastfind(String[] args) {
@@ -18,6 +22,18 @@ public class Fastfind {
 
         if (args[0].equals("-h")) {
             utilities.usage(2);
+            return;
+        }
+
+        for (int i = 0; i < commands.length; i++) { // check if option is valid
+            if (args[0].equals(commands[i])) {
+                isCommand = true;
+                break;
+            }
+        }
+
+        if (!isCommand) {
+            System.out.println("Invalid parameter: '" + args[0] + "'. For an overview of all commands, type fastfind -h.");
             return;
         }
 
