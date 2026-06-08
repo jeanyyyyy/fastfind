@@ -14,10 +14,18 @@ bash install.sh
 ```
 
 ### Current features:
-* Filter search for image, video, compressed and installer files, aswell as documents. Fastfind also supports insensitive search.
+Filter search for: 
+* image files (.jpg, .png, .gif, .webp)
+* video files (.mp4, .avi, .mkv)
+* document files (.pdf, .docx, .txt, .odt, .pptx, .odp)
+* compressed files (.zip, .rar, .7z)
+* installer files (.exe, .tar.gz, .msi, .AppImage, .dmg)
+* Case insensitive search
 
 ### Examples:
 fastfind -img ~/Downloads/ xyz  // searches for image files that contain the letters xyz.
+
+
 
 *Feedback is highly appreciated :>*
 
