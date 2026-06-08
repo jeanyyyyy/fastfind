@@ -32,7 +32,7 @@ fastfind -img ~/Downloads/ xyz
 
 Search for *all* documents within ~/Documents/:
 ```bash
-fastfind -doc ~/Documents/ // searches for *all* document files withing ~/Documents/
+fastfind -doc ~/Documents/
 ```
 
 ---
