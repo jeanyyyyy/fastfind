@@ -4,7 +4,10 @@ public class Utils {
     public void usage(int which) {
         switch (which) {
             case 1:
-                System.out.println("Usage: fastfind (option) (path) (filename)\nFor an overview of the available commands, type 'fastfind -h'");
+                System.out.println("Usage: fastfind (option) (path) (filename)" +
+                        "\nLeave filename blank, if you wish to filter every file containing selected file extension" +
+                        "\n" +
+                        "\nFor an overview of the available commands, type 'fastfind -h'");
                 break;
             case 2:
                 System.out.println("""

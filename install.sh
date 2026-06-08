@@ -21,4 +21,5 @@ if [[ ":$PATH:" != *":$INSTALL_DIR:"* ]]; then
 fi
 
 
-echo "$NAME was successfully installed. Use fastfind -h for an overview of the available commands."
+echo "$NAME was successfully installed."
+echo "Usage: fastfind (option) (path) (filename)"
