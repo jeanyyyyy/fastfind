@@ -4,12 +4,12 @@ import java.util.ArrayList;
 public class Fastfind {
     Utils utilities;
     private ArrayList<String> command;
-    private String[] commands;
+    private String[] filters;
     private boolean isCommand;
 
     public Fastfind() {
         utilities = new Utils();
-        commands = new String[] {"-i", "-img", "-doc", "-vid", "-comp", "-inst"};
+        filters = new String[] {"-i", "-img", "-doc", "-vid", "-comp", "-inst"};
         isCommand = false;
     }
 
@@ -25,15 +25,15 @@ public class Fastfind {
             return;
         }
 
-        for (int i = 0; i < commands.length; i++) { // check if option is valid
-            if (args[0].equals(commands[i])) {
+        for (int i = 0; i < filters.length; i++) { // check if option is valid
+            if (args[0].equals(filters[i])) {
                 isCommand = true;
                 break;
             }
         }
 
         if (!isCommand) {
-            System.out.println("Invalid parameter: '" + args[0] + "'. For an overview of all commands, type fastfind -h.");
+            System.out.println("Invalid filter: '" + args[0] + "'. For an overview of all filters, use: 'fastfind -h.'");
             return;
         }
 
