@@ -23,9 +23,10 @@ Filter search for:
 * Case insensitive search
 
 ### Examples:
-fastfind -img ~/Downloads/ xyz  // searches for image files that contain the letters xyz.
+fastfind -img ~/Downloads/ xyz  // searches for image files that contain the letters xyz within ~/Downloads/
+fastfind -doc ~/Documents/ // searches for *all* document files withing ~/Documents/
 
-
+###-----------------------------------
 
 *Feedback is highly appreciated :>*
 
