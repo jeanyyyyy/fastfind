@@ -5,9 +5,9 @@ Note that this is a beginner project, so things may not work as intended.
 
 ### Installation:
 ```bash
-1. git clone https://github.com/jeanyyyyy/fastfind
-2. cd fastfind
-3. bash install.sh
+git clone https://github.com/jeanyyyyy/fastfind
+cd fastfind
+bash install.sh
 ```
 
 Done!
