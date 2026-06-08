@@ -6,6 +6,8 @@ Note that this is a beginner project, so things may not work as intended.
 ### Why?
 The default 'find' command is quite hard to remember, especially when trying to search for many parameters at once. This tool aims to ease the use of 'find'.
 
+---
+
 ### Installation:
 ```bash
 git clone https://github.com/jeanyyyyy/fastfind
@@ -28,8 +30,11 @@ fastfind -doc ~/Documents/ // searches for *all* document files withing ~/Docume
 
 ---
 
-*Feedback is highly appreciated :>*
-
 #### Planned:
 * Windows support
 * More search options
+
+---
+
+*Feedback is highly appreciated :>*
+
