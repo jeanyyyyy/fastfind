@@ -25,12 +25,12 @@ Filter search for:
 * Case insensitive search
 
 ### Examples:
-Search for images containing "xyz" in ~/Downloads/:
+Search for images containing "xyz" in '~/Downloads/' :
 ```bash
 fastfind -img ~/Downloads/ xyz
 ```
 
-Search for *all* documents within ~/Documents/:
+Search for *all* documents within '~/Documents/' :
 ```bash
 fastfind -doc ~/Documents/
 ```
