@@ -30,7 +30,7 @@ Search for images containing "xyz" in ~/Downloads/:
 fastfind -img ~/Downloads/ xyz
 ```
 
-Search for *all* documents withing ~/Documents/:
+Search for *all* documents within ~/Documents/:
 ```bash
 fastfind -doc ~/Documents/ // searches for *all* document files withing ~/Documents/
 ```
