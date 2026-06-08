@@ -4,7 +4,7 @@ A 'find' wrapper for Unix based systems. The goal of this project is to make the
 Note that this is a beginner project, so things may not work as intended.
 
 ### Why?
-The default 'find' command is quite hard to remember, especially when trying to search for many parameters at once. This tool aims to ease the use of 'find'.
+The default 'find' command is quite hard to remember, especially when trying to search for many parameters at once. This tool aims to simplify the usage of 'find'.
 
 ---
 
@@ -25,8 +25,15 @@ Filter search for:
 * Case insensitive search
 
 ### Examples:
-fastfind -img ~/Downloads/ xyz  // searches for image files that contain the letters xyz within ~/Downloads/
+Search for images containing "xyz" in ~/Downloads/:
+```bash
+fastfind -img ~/Downloads/ xyz
+```
+
+Search for *all* documents withing ~/Documents/:
+```bash
 fastfind -doc ~/Documents/ // searches for *all* document files withing ~/Documents/
+```
 
 ---
 
