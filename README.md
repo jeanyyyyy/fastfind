@@ -24,6 +24,9 @@ Filter search for:
 * installer files (.exe, .tar.gz, .msi, .AppImage, .dmg)
 * Case insensitive search
 
+### Usage:
+fastfind [filter] [directory] [query]
+
 ### Examples:
 Search for images containing "xyz" in '~/Downloads/' :
 ```bash
