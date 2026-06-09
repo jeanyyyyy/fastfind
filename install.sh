@@ -22,4 +22,4 @@ fi
 
 
 echo "$NAME was successfully installed."
-echo "fastfind [filter] [directory] [query]"
+echo "Usage: fastfind [filter] [directory] [query]"
