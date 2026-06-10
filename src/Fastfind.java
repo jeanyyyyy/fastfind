@@ -1,16 +1,15 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Fastfind {
     Utils utilities;
     private ArrayList<String> command;
-    private String[] filters;
-    private boolean isCommand;
 
     public Fastfind() {
         utilities = new Utils();
-        filters = new String[] {"-i", "-img", "-doc", "-vid", "-comp", "-inst"};
-        isCommand = false;
+        command = new ArrayList<>();
     }
 
     public void runFastfind(String[] args) {
@@ -25,36 +24,32 @@ public class Fastfind {
             return;
         }
 
-        for (int i = 0; i < filters.length; i++) { // check if option is valid
-            if (args[0].equals(filters[i])) {
-                isCommand = true;
-                break;
-            }
-        }
-
-        if (!isCommand) {
-            System.out.println("Invalid filter: '" + args[0] + "'. For an overview of all filters, use: 'fastfind -h.'");
-            return;
-        }
-
         if (args.length < 2) {
             utilities.usage(1);
             return;
         }
 
-        command = new ArrayList<String>();
-        String option = args[0];
-        String dir = args[1].replace("~", System.getProperty("user.home")); // search in home directory
+        String dir;
         String name;
 
-        if (args.length < 3 || args[2].isEmpty()) { // in case insufficient arguments are provided
-            name = "*";                               // or name is empty
+        if (args[args.length - 2].startsWith("-")) {
+            dir = args[args.length - 1];
+            name = "*";
         } else {
-            name = args[2];
+            dir = args[args.length - 2];
+            name = args[args.length - 1];
         }
 
-        ArrayList<String> end = Options.options(option, command, dir, name);
-        ProcessBuilder pb = new ProcessBuilder(end);
+        if (name.isEmpty()) {
+            name = "*";
+        }
+
+        command = Filter.Flag(args, dir, name, command);
+        if (command == null) {
+            return;
+        }
+
+        ProcessBuilder pb = new ProcessBuilder(command);
         pb.inheritIO();
 
         try {

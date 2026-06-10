@@ -4,21 +4,18 @@ public class Utils {
     public void usage(int which) {
         switch (which) {
             case 1:
-                System.out.println("fastfind [filter] [directory] [query]" +
-                        "\nLeave query blank to filter every file containing selected filter" +
-                        "\n" +
-                        "\nFor an overview of all available filters, type 'fastfind -h'");
+                System.out.println("Usage: 'fastfind [flag(s)] [directory] [query]'" +
+                        "\nLeave query blank to filter every file containing selected flag." +
+                        "\nFor an overview of all available flags, type 'fastfind -h'");
                 break;
             case 2:
                 System.out.println("""
-                            Available filters:
-                            -i      insensitive (ignore capital letters)
+                            Available flags:
                             -img    images      (.jpg, .png, .gif, .webp)
                             -vid    videos      (.mp4, .mkv, .avi)
                             -doc    documents   (.pdf, .docx, .txt, .odt, .pptx, .odp)
                             -comp   compressed  (.zip, .rar, .7z)
-                            -inst   installer   (.exe, .tar.gz, .msi, .AppImage, .dmg)
-                        """);
+                            -inst   installer   (.exe, .tar.gz, .msi, .AppImage, .dmg)""");
                 break;
         }
     }
