@@ -22,10 +22,9 @@ Filter search for:
 * document files (.pdf, .docx, .txt, .odt, .pptx, .odp)
 * compressed files (.zip, .rar, .7z)
 * installer files (.exe, .tar.gz, .msi, .AppImage, .dmg)
-* Case insensitive search
 
 ### Usage:
-fastfind [filter] [directory] [query]
+fastfind [flag(s)] [directory] [query]
 
 ### Examples:
 Search for images containing "xyz" in '~/Downloads/' :
@@ -36,6 +35,11 @@ fastfind -img ~/Downloads/ xyz
 Search for *all* documents within '~/Documents/' :
 ```bash
 fastfind -doc ~/Documents/
+```
+
+Search for all images as well as documents within '~/Desktop/':
+```bash
+fastfind -doc -img ~/Desktop/
 ```
 
 ---
