@@ -16,16 +16,17 @@ bash install.sh
 ```
 
 ### Current features:
-Filter search for: 
+Filter search by: 
 * image files (.jpg, .png, .gif, .webp)
 * video files (.mp4, .avi, .mkv)
 * document files (.pdf, .docx, .txt, .odt, .pptx, .odp)
 * compressed files (.zip, .rar, .7z)
 * executable files (.exe, .tar.gz, .msi, .AppImage, .dmg)
 * audio files (.mp3, .wav, .ogg)
+* size (<10MB, >100MB, >1GB)
 
 ### Usage:
-fastfind [flag(s)] [directory] [query]
+fastfind [size flag][flag(s)] [directory] [query]
 
 ### Examples:
 Search for images containing "xyz" in '~/Downloads/' :
@@ -42,6 +43,11 @@ Search for all images as well as documents within '~/Desktop/':
 ```bash
 fastfind -doc -img ~/Desktop/
 ```
+
+Swarch for videos bigger than 100MB containing "xyz" within '~/Videos/':
+```bash
+fastfind -big -vid ~/Videos/ xyz
+``
 
 ---
 

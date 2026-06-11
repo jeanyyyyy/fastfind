@@ -3,11 +3,13 @@ import java.util.ArrayList;
 
 public class Fastfind {
     Utils utilities;
+    Filter filter;
     private ArrayList<String> command;
 
     public Fastfind() {
         utilities = new Utils();
         command = new ArrayList<>();
+        filter = new Filter();
     }
 
     public void runFastfind(String[] args) {
@@ -41,7 +43,7 @@ public class Fastfind {
             name = "*";
         }
 
-        command = Filter.Flag(args, dir, name, command);
+        command = filter.Flag(args, dir, name, command);
         if (command == null) {
             return;
         }

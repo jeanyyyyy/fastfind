@@ -3,11 +3,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Filter {
-    static int amountFlags;
+    int amountFlags;
+    boolean sizeSelected;
     public Filter() {
         amountFlags = 0;
+        sizeSelected = false;
     }
-    public static ArrayList<String> Flag(String args[], String dir, String name, ArrayList<String> command) {
+    public ArrayList<String> Flag(String args[], String dir, String name, ArrayList<String> command) {
         command.addAll(List.of(
                 "find",
                 dir,
@@ -127,10 +129,17 @@ public class Filter {
                         amountFlags++;
                         break;
 
-                    //case "-small":
-                        //command.addAll(List.of(
+                    case "-small":
+                        // handled after
+                        break;
 
-                        //))
+                    case "-big":
+                        // handled after
+                        break;
+
+                    case "-large":
+                        // handled after
+                        break;
 
                     default:
                         System.out.println("Invalid flag: '" + args[i] + "'. Check valid flags with 'fastfind -h'");
@@ -139,13 +148,44 @@ public class Filter {
         }
 
         boolean hasFlag = Arrays.stream(args).anyMatch(a ->
-                List.of("-img", "-vid", "-doc", "-comp", "-exec", "-aud").contains(a));
+                List.of("-img", "-vid", "-doc", "-comp", "-exec", "-aud", "-small", "-big", "-large").contains(a));
         if (!hasFlag) {
             System.out.println("Invalid structure. Usage: 'fastfind [flag(s)] [directory] [query]'");
             return null;
         }
 
         command.add(")");
+
+        for (String arg : args) {
+            if (sizeSelected) {
+                break;
+            }
+            switch(arg) {
+                case "-small":
+                    command.addAll(List.of(
+                            "-size",
+                            "-10M"
+                    ));
+                    sizeSelected = true;
+                    break;
+
+                case "-big":
+                    command.addAll(List.of(
+                            "-size",
+                            "+100M"
+                    ));
+                    sizeSelected = true;
+                    break;
+
+                case "-large":
+                    command.addAll(List.of(
+                            "-size",
+                            "+1G"
+                    ));
+                    sizeSelected = true;
+                    break;
+            }
+        }
 
         return command;
     }
