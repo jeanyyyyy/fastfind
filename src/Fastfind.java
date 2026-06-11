@@ -1,7 +1,5 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Fastfind {
     Utils utilities;
@@ -13,7 +11,6 @@ public class Fastfind {
     }
 
     public void runFastfind(String[] args) {
-
         if (args.length == 0) {
             utilities.usage(1);
             return;

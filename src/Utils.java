@@ -15,7 +15,8 @@ public class Utils {
                             -vid    videos      (.mp4, .mkv, .avi)
                             -doc    documents   (.pdf, .docx, .txt, .odt, .pptx, .odp)
                             -comp   compressed  (.zip, .rar, .7z)
-                            -inst   installer   (.exe, .tar.gz, .msi, .AppImage, .dmg)""");
+                            -exec   executable  (.exe, .tar.gz, .msi, .AppImage, .dmg, .app)
+                            -aud    audio       (.mp3, .wav, .ogg)""");
                 break;
         }
     }

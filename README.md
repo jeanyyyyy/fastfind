@@ -21,7 +21,8 @@ Filter search for:
 * video files (.mp4, .avi, .mkv)
 * document files (.pdf, .docx, .txt, .odt, .pptx, .odp)
 * compressed files (.zip, .rar, .7z)
-* installer files (.exe, .tar.gz, .msi, .AppImage, .dmg)
+* executable files (.exe, .tar.gz, .msi, .AppImage, .dmg)
+* audio files (.mp3, .wav, .ogg)
 
 ### Usage:
 fastfind [flag(s)] [directory] [query]

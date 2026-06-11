@@ -3,8 +3,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Filter {
+    static int amountFlags;
+    public Filter() {
+        amountFlags = 0;
+    }
     public static ArrayList<String> Flag(String args[], String dir, String name, ArrayList<String> command) {
-        Utils utilities = new Utils();
         command.addAll(List.of(
                 "find",
                 dir,
@@ -15,6 +18,9 @@ public class Filter {
 
         for (int i = 0; i < args.length; i++) {
             if (args[i].startsWith("-")) {
+                if (amountFlags > 0) {
+                    command.add("-o");
+                }
                 switch (args[i]) {
                     case "-img":
                         command.addAll(List.of(
@@ -30,6 +36,7 @@ public class Filter {
                                 "-iname",
                                 "*%s*.webp".formatted(name)
                         ));
+                        amountFlags++;
                         break;
 
                     case "-vid":
@@ -43,6 +50,7 @@ public class Filter {
                                 "-iname",
                                 "*%s*.avi".formatted(name)
                         ));
+                        amountFlags++;
                         break;
 
                     case "-doc":
@@ -65,6 +73,7 @@ public class Filter {
                                 "-iname",
                                 "*%s*.odp".formatted(name)
                         ));
+                        amountFlags++;
                         break;
 
                     case "-comp":
@@ -78,9 +87,10 @@ public class Filter {
                                 "-iname",
                                 "*%s*.7z".formatted(name)
                         ));
+                        amountFlags++;
                         break;
 
-                    case "-inst":
+                    case "-exec":
                         command.addAll(List.of(
                                 "-iname",
                                 "*%s*.exe".formatted(name),
@@ -95,9 +105,32 @@ public class Filter {
                                 "*%s*.AppImage".formatted(name),
                                 "-o",
                                 "-iname",
-                                "*%s*.dmg".formatted(name)
+                                "*%s*.dmg".formatted(name),
+                                "-o",
+                                "-iname",
+                                "*%s*.app".formatted(name)
                         ));
+                        amountFlags++;
                         break;
+
+                    case "-aud":
+                        command.addAll(List.of(
+                                "-iname",
+                                "*%s*.mp3".formatted(name),
+                                "-o",
+                                "-iname",
+                                "*%s*.wav".formatted(name),
+                                "-o",
+                                "-iname",
+                                "*%s*.ogg".formatted(name)
+                        ));
+                        amountFlags++;
+                        break;
+
+                    //case "-small":
+                        //command.addAll(List.of(
+
+                        //))
 
                     default:
                         System.out.println("Invalid flag: '" + args[i] + "'. Check valid flags with 'fastfind -h'");
@@ -106,7 +139,7 @@ public class Filter {
         }
 
         boolean hasFlag = Arrays.stream(args).anyMatch(a ->
-                List.of("-img", "-vid", "-doc", "-comp", "-inst").contains(a));
+                List.of("-img", "-vid", "-doc", "-comp", "-exec", "-aud").contains(a));
         if (!hasFlag) {
             System.out.println("Invalid structure. Usage: 'fastfind [flag(s)] [directory] [query]'");
             return null;
