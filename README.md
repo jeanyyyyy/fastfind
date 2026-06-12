@@ -45,10 +45,10 @@ Search for all images as well as documents within '~/Desktop/':
 fastfind -doc -img ~/Desktop/
 ```
 
-Swarch for videos bigger than 100MB containing "xyz" within '~/Videos/':
+Search for videos bigger than 100MB containing "xyz" within '~/Videos/':
 ```bash
 fastfind -big -vid ~/Videos/ xyz
-``
+```
 
 ---
 
