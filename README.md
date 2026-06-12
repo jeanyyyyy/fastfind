@@ -24,6 +24,7 @@ Filter search by:
 * executable files (.exe, .tar.gz, .msi, .AppImage, .dmg)
 * audio files (.mp3, .wav, .ogg)
 * size (<10MB, >100MB, >1GB)
+* general search by name
 
 ### Usage:
 fastfind [size flag][flag(s)] [directory] [query]

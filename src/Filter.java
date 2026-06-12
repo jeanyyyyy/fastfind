@@ -5,11 +5,13 @@ import java.util.List;
 public class Filter {
     int amountFlags;
     boolean sizeSelected;
+    boolean allFlag;
     public Filter() {
         amountFlags = 0;
         sizeSelected = false;
+        allFlag = false;
     }
-    public ArrayList<String> Flag(String args[], String dir, String name, ArrayList<String> command) {
+    public ArrayList<String> Flag(String[] args, String dir, String name, ArrayList<String> command) {
         command.addAll(List.of(
                 "find",
                 dir,
@@ -20,6 +22,9 @@ public class Filter {
 
         for (int i = 0; i < args.length; i++) {
             if (args[i].startsWith("-")) {
+                if (allFlag) {
+                    break;
+                }
                 if (amountFlags > 0) {
                     command.add("-o");
                 }
@@ -129,6 +134,14 @@ public class Filter {
                         amountFlags++;
                         break;
 
+                    case "-a":
+                        command.addAll(List.of(
+                                "-iname",
+                                "*%s*".formatted(name)
+                        ));
+                        allFlag = true;
+                        break;
+
                     case "-small":
                         // handled after
                         break;
@@ -148,7 +161,7 @@ public class Filter {
         }
 
         boolean hasFlag = Arrays.stream(args).anyMatch(a ->
-                List.of("-img", "-vid", "-doc", "-comp", "-exec", "-aud", "-small", "-big", "-large").contains(a));
+                List.of("-img", "-vid", "-doc", "-comp", "-exec", "-aud", "-small", "-big", "-large", "-a").contains(a));
         if (!hasFlag) {
             System.out.println("Invalid structure. Usage: 'fastfind [flag(s)] [directory] [query]'");
             return null;
@@ -186,7 +199,6 @@ public class Filter {
                     break;
             }
         }
-
         return command;
     }
 }

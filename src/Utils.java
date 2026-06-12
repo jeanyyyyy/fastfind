@@ -18,6 +18,7 @@ public class Utils {
                             -comp   compressed  (.zip, .rar, .7z)
                             -exec   executable  (.exe, .tar.gz, .msi, .AppImage, .dmg, .app)
                             -aud    audio       (.mp3, .wav, .ogg)
+                            -a      general     (search all files by name)
                             
                             Available size flags:
                             -small              (<10MB)
