@@ -1,3 +1,9 @@
+# This project is deprecated.
+Updated project: [fastfind-cli](https://github.com/jeanyyyyy/fastfind-cli)
+
+---
+
+
 # fastfind
 A 'find' wrapper for Unix based systems. The goal of this project is to make the syntax easier and faster to type.
 
